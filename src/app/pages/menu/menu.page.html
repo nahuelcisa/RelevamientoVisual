@@ -1,0 +1,52 @@
+<ion-content color="warning">
+  
+  <div style="margin-bottom: 4rem;">
+    <ion-menu side="start" content-id="main-content">
+        <ion-header>
+          <ion-toolbar translucent>
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>
+              <ion-icon name="grid-outline" slot="start"></ion-icon>
+              <ion-label (click)="opcionMenu(1)">Menu Categorias</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="business-outline" slot="start"></ion-icon>
+              <ion-label (click)="opcionMenu(5)">{{this.tituloMenuCosa}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="archive" slot="start"></ion-icon>
+              <ion-label (click)="opcionMenu(2)">Mis imagenes</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+              <ion-label (click)="opcionMenu(4)">Cerrar sesion</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+      
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title style="font-size:x-large;">{{this.tituloMenu}}</ion-title>
+            <ion-icon name="camera-outline" slot="end" style="width: 3rem; height: 3rem; margin-right: 0.5rem;" *ngIf="foto" (click)="addPhotoToGallery()"></ion-icon>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+  </div>
+  
+    <div>
+      <app-cards *ngIf="feed" [tema]="this.tema"></app-cards>
+      <app-cards-usuario *ngIf="misImagenes"></app-cards-usuario>
+      <app-graficos *ngIf="graficos"></app-graficos>
+    </div>
+  <ion-spinner *ngIf="apretado" color="success" name="crescent" style="display: inherit; margin:auto;width: 4cm; height: 4cm; margin-top: 2rem;"></ion-spinner>
+
+</ion-content>

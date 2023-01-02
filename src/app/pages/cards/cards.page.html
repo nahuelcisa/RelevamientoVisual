@@ -1,0 +1,32 @@
+<div *ngIf="tema == 1">
+  <ion-card color="light" *ngFor="let item of this.cosasLindas; let i = index" data-index="i">
+    <img src="{{item.pathFoto}}" />
+    <ion-card-header>
+      <ion-card-title>{{item.email}}</ion-card-title>
+      <ion-card-subtitle>{{item.hora}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item  color="secondary">
+        <ion-icon name="thumbs-up-outline" slot="start" style="width: 3rem; height: 3rem; margin-left: 40%;" color="light" *ngIf="item.likes.indexOf(this.as.logeado.email) == -1"
+        (click)="votarImagen(item,false)"></ion-icon>
+        <ion-icon name="thumbs-up-sharp" slot="start" style="width: 3rem; height: 3rem; margin-left: 40%;" color="light" *ngIf="item.likes.indexOf(this.as.logeado.email) != -1" (click)="votarImagen(item, true)"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div *ngIf="tema == 2">
+  <ion-card color="light" *ngFor="let item of this.cosasFeas; let i = index" data-index="i">
+    <img src="{{item.pathFoto}}" />
+    <ion-card-header>
+      <ion-card-title>{{item.email}}</ion-card-title>
+      <ion-card-subtitle>{{item.hora}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item  color="secondary">
+        <ion-icon name="thumbs-up-outline" slot="start" style="width: 3rem; height: 3rem; margin-left: 40%;" color="light" *ngIf="item.likes.indexOf(this.as.logeado.email) == -1"
+        (click)="votarImagen(item,false)"></ion-icon>
+        <ion-icon name="thumbs-up-sharp" slot="start" style="width: 3rem; height: 3rem; margin-left: 40%;" color="light" *ngIf="item.likes.indexOf(this.as.logeado.email) != -1" (click)="votarImagen(item,true)"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</div>
